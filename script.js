@@ -70,3 +70,4 @@ document.getElementById('eventForm').addEventListener('submit', function(e) {
         btn.innerText = originalBtnText;
     });
 });
+
