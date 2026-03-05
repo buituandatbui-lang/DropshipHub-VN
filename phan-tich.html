@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Báo cáo Phân tích - DropshipHub VN</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body { background-color: #f8fafc; color: #1e293b; font-family: 'Segoe UI', system-ui, sans-serif; }
+        .dashboard-container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
+        
+        /* Header chuyên nghiệp, không emoji */
+        .dashboard-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 30px; border-bottom: 2px solid #e2e8f0; padding-bottom: 20px; }
+        .dashboard-title { color: #0f172a; font-size: 1.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: -0.5px; margin-bottom: 8px; }
+        .meta-text { color: #64748b; font-size: 0.9rem; }
+        .meta-text span { font-weight: 600; color: #0f172a; }
+        
+        /* Section Box */
+        .niche-section { background: white; border-radius: 8px; padding: 30px; margin-bottom: 30px; border: 1px solid #e2e8f0; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+        .niche-title { color: #0f172a; margin-bottom: 25px; font-size: 1.3rem; border-left: 4px solid #f97316; padding-left: 15px; }
+        
+        /* Thẻ số liệu tối giản */
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 30px; }
+        .stat-card { padding: 20px; border-radius: 6px; border: 1px solid #f1f5f9; background: #f8fafc; }
+        .stat-card h4 { color: #64748b; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
+        .stat-card .number { color: #0f172a; font-size: 1.8rem; font-weight: 700; margin-bottom: 5px; }
+        .trend { font-size: 0.85rem; font-weight: 600; padding: 3px 8px; border-radius: 4px; display: inline-block; }
+        .trend.up { background: #dcfce7; color: #166534; }
+        .trend.down { background: #fee2e2; color: #991b1b; }
+        .trend.neutral { background: #e0e7ff; color: #3730a3; }
+        
+        /* Layout chia cột */
+        .content-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+        
+        /* Biểu đồ tự code bằng CSS (Khử mùi ảnh mạng) */
+        .css-chart-container { background: #f8fafc; padding: 20px; border-radius: 6px; border: 1px solid #e2e8f0; }
+        .chart-title { font-size: 0.9rem; color: #475569; margin-bottom: 20px; text-align: center; font-weight: 600; }
+        
+        /* Bar Chart CSS */
+        .bar-chart { display: flex; align-items: flex-end; justify-content: space-around; height: 200px; padding-bottom: 20px; border-bottom: 1px solid #cbd5e1; margin-bottom: 10px; }
+        .bar-group { display: flex; flex-direction: column; align-items: center; width: 15%; }
+        .bar { width: 100%; background: #94a3b8; border-radius: 4px 4px 0 0; transition: 0.3s; }
+        .bar:hover { background: #0f172a; }
+        .bar.highlight { background: #f97316; }
+        .bar-label { font-size: 0.8rem; color: #64748b; margin-top: 10px; }
+        .bar-value { font-size: 0.75rem; color: #0f172a; font-weight: bold; margin-bottom: 5px; }
+
+        /* Progress Bar CSS */
+        .progress-group { margin-bottom: 15px; }
+        .progress-label { display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 5px; color: #334155; font-weight: 600; }
+        .progress-track { width: 100%; height: 8px; background: #e2e8f0; border-radius: 4px; overflow: hidden; }
+        .progress-fill { height: 100%; background: #0f172a; border-radius: 4px; }
+        .progress-fill.orange { background: #f97316; }
+        
+        /* Text Report */
+        .report-list { list-style: none; padding: 0; }
+        .report-list li { position: relative; padding-left: 15px; margin-bottom: 12px; color: #334155; font-size: 0.95rem; line-height: 1.5; }
+        .report-list li::before { content: ''; position: absolute; left: 0; top: 8px; width: 6px; height: 6px; background: #f97316; border-radius: 50%; }
+        .highlight-text { font-weight: 600; color: #0f172a; }
+
+        @media (max-width: 768px) {
+            .content-grid { grid-template-columns: 1fr; }
+            .dashboard-header { flex-direction: column; align-items: flex-start; gap: 15px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <div class="dashboard-header">
+            <div>
+                <h1 class="dashboard-title">Báo Cáo Phân Tích Dữ Liệu Ngách</h1>
+                <div class="meta-text">
+                    Nguồn dữ liệu: <span>Internal Data DropshipHub</span> | 
+                    Cập nhật: <span>05/03/2026</span>
+                </div>
+            </div>
+            <div>
+                <a href="index.html" class="btn-outline" style="color: #0f172a; border-color: #cbd5e1; font-size: 0.9rem; padding: 8px 16px;">&larr; Trở về Trang chủ</a>
+                <button class="btn-primary" style="font-size: 0.9rem; padding: 8px 16px; margin-left: 10px;" onclick="window.print()">Xuất báo cáo PDF</button>
+            </div>
+        </div>
+
+        <div class="niche-section">
+            <h2 class="niche-title">1. Ngách Phụ kiện Công thái học (Ergonomic Accessories)</h2>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h4>Gross Margin</h4>
+                    <div class="number">35.4%</div>
+                    <div class="trend up">+5.2% YoY</div>
+                </div>
+                <div class="stat-card">
+                    <h4>Search Volume / Tháng</h4>
+                    <div class="number">125,400</div>
+                    <div class="trend up">Tăng trưởng ổn định</div>
+                </div>
+                <div class="stat-card">
+                    <h4>Refund Rate</h4>
+                    <div class="number">1.2%</div>
+                    <div class="trend neutral">Rủi ro thấp</div>
+                </div>
+            </div>
+            
+            <div class="content-grid">
+                <div class="css-chart-container">
+                    <div class="chart-title">Tăng trưởng Doanh thu theo Quý (Tỷ VNĐ)</div>
+                    <div class="bar-chart">
+                        <div class="bar-group">
+                            <span class="bar-value">12.5</span>
+                            <div class="bar" style="height: 40%;"></div>
+                            <span class="bar-label">Q1/25</span>
+                        </div>
+                        <div class="bar-group">
+                            <span class="bar-value">15.2</span>
+                            <div class="bar" style="height: 50%;"></div>
+                            <span class="bar-label">Q2/25</span>
+                        </div>
+                        <div class="bar-group">
+                            <span class="bar-value">18.4</span>
+                            <div class="bar" style="height: 65%;"></div>
+                            <span class="bar-label">Q3/25</span>
+                        </div>
+                        <div class="bar-group">
+                            <span class="bar-value">22.1</span>
+                            <div class="bar" style="height: 80%;"></div>
+                            <span class="bar-label">Q4/25</span>
+                        </div>
+                        <div class="bar-group">
+                            <span class="bar-value">28.5</span>
+                            <div class="bar highlight" style="height: 100%;"></div>
+                            <span class="bar-label" style="font-weight: bold; color: #f97316;">Q1/26</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 style="font-size: 1.1rem; color: #0f172a; margin-bottom: 15px;">Đánh giá chiến lược:</h3>
+                    <ul class="report-list">
+                        <li><span class="highlight-text">Tệp khách hàng:</span> Nhân sự văn phòng, Freelancers (22-35 tuổi). Nam giới chiếm 65% thị phần.</li>
+                        <li><span class="highlight-text">Sản phẩm mồi (Loss Leader):</span> Giá đỡ tản nhiệt nhôm, Kê tay bàn phím cơ.</li>
+                        <li><span class="highlight-text">Chiến lược định giá:</span> Có thể áp dụng Premium Pricing (Giá cao) do khách hàng nhạy cảm với chất lượng ảnh hưởng trực tiếp đến sức khỏe hơn là giá cả.</li>
+                        <li><span class="highlight-text">Kênh phân phối:</span> TikTok Shop chiếm 60% GMV nhờ các video review "Desk Setup".</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="niche-section">
+            <h2 class="niche-title">2. Ngách Mỹ phẩm Thuần chay (Vegan Cosmetics)</h2>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h4>Biên Lợi Nhuận</h4>
+                    <div class="number">55.8%</div>
+                    <div class="trend up">Hiệu suất cao</div>
+                </div>
+                <div class="stat-card">
+                    <h4>Retention Rate</h4>
+                    <div class="number">42.5%</div>
+                    <div class="trend up">Độ trung thành cao</div>
+                </div>
+                <div class="stat-card">
+                    <h4>CAC (Chi phí có 1 đơn)</h4>
+                    <div class="number">45K</div>
+                    <div class="trend down">Cạnh tranh cao</div>
+                </div>
+            </div>
+            
+            <div class="content-grid">
+                <div>
+                    <h3 style="font-size: 1.1rem; color: #0f172a; margin-bottom: 15px;">Phân tích vận hành:</h3>
+                    <ul class="report-list">
+                        <li><span class="highlight-text">Động lực mua hàng:</span> Xu hướng tẩy chay thử nghiệm trên động vật (Cruelty-free) của Gen Z tạo ra USP mạnh mẽ cho ngách.</li>
+                        <li><span class="highlight-text">Winning Products:</span> Son dưỡng có màu tự nhiên, Kem chống nắng vật lý màng lọc quang phổ rộng.</li>
+                        <li><span class="highlight-text">Rào cản gia nhập:</span> Đòi hỏi xây dựng Social Proof mạnh qua KOC/KOL để tạo lòng tin về bảng thành phần (Ingredients).</li>
+                        <li><span class="highlight-text">Đề xuất tối ưu:</span> Yêu cầu xưởng Dropship sử dụng vật liệu đóng gói tái chế (Kraft paper) để đồng nhất thông điệp bảo vệ môi trường.</li>
+                    </ul>
+                </div>
+                
+                <div class="css-chart-container">
+                    <div class="chart-title">Phân bổ Khách hàng theo Độ tuổi (Demographics)</div>
+                    
+                    <div class="progress-group">
+                        <div class="progress-label"><span>Gen Z (16 - 25 tuổi)</span><span>65%</span></div>
+                        <div class="progress-track"><div class="progress-fill orange" style="width: 65%;"></div></div>
+                    </div>
+                    
+                    <div class="progress-group">
+                        <div class="progress-label"><span>Millennials (26 - 35 tuổi)</span><span>25%</span></div>
+                        <div class="progress-track"><div class="progress-fill" style="width: 25%;"></div></div>
+                    </div>
+                    
+                    <div class="progress-group">
+                        <div class="progress-label"><span>Gen X (36+ tuổi)</span><span>10%</span></div>
+                        <div class="progress-track"><div class="progress-fill" style="background: #94a3b8; width: 10%;"></div></div>
+                    </div>
+                    
+                    <p style="font-size: 0.8rem; color: #64748b; margin-top: 20px; text-align: center;">* Dữ liệu lấy từ tập mẫu 50,000 đơn hàng thành công trên Shopee Mall.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

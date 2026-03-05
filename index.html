@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DropshipHub VN - Nền tảng Hỗ trợ Dropshipping Toàn Diện</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">DropshipHub VN<span style="color:white; font-size:1rem; font-weight:normal;"> | Cổng thông tin</span></div>
+        <nav>
+            <ul>
+                <li><a href="#market">Thị trường</a></li>
+                <li><a href="#how-it-works">Quy trình</a></li>
+                <li><a href="#calculator">Công cụ</a></li>
+                <li><a href="#suppliers">Nguồn hàng</a></li>
+                <li><a href="#events">Sự kiện</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Làm chủ mô hình Dropshipping 2026</h1>
+            <p>Tối ưu dòng tiền, triệt tiêu rủi ro tồn kho. Nền tảng duy nhất cung cấp báo cáo thị trường, công cụ tính toán và kết nối nguồn hàng cho Dropshipper Việt.</p>
+            <div class="hero-buttons">
+                <a href="#calculator" class="btn-primary">Tính toán lợi nhuận ngay</a>
+                <a href="#how-it-works" class="btn-outline">Xem quy trình vận hành</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="market" class="section-container">
+        <div class="section-title">
+            <h2>Phân tích Thị trường & Ngách Sản phẩm</h2>
+            <p>Dữ liệu được cập nhật từ các báo cáo TMĐT vĩ mô và xu hướng tiêu dùng mới nhất.</p>
+        </div>
+        <div class="grid-3">
+            <div class="card market-card">
+                <div class="tag">Báo cáo Vĩ mô</div>
+                <h3>Sách Trắng TMĐT Việt Nam</h3>
+                <p>Quy mô thị trường bán lẻ trực tuyến dự kiến đạt 30 tỷ USD. Tỷ trọng mua sắm qua Video ngắn tăng 150%.</p>
+                <a href="Sach_Trang_TMDT.pdf" download class="link-text">Tải báo cáo PDF &rarr;</a>
+            </div>
+            <div class="card market-card">
+                <div class="tag hot">Winning Product</div>
+                <h3>Ngách: Phụ kiện Công thái học</h3>
+                <p>Xu hướng làm việc tại nhà (WFH) tiếp tục thúc đẩy nhu cầu giá đỡ laptop, bàn phím cơ và ghế chỉnh tư thế.</p>
+                <a href="phan-tich.html" class="link-text">Xem phân tích &rarr;</a>
+            </div>
+            <div class="card market-card">
+                <div class="tag hot">Winning Product</div>
+                <h3>Ngách: Mỹ phẩm Thuần chay</h3>
+                <p>Thế hệ Gen Z đang dịch chuyển mạnh sang các sản phẩm làm đẹp không thử nghiệm trên động vật (Cruelty-free).</p>
+                <a href="phan-tich.html" class="link-text">Xem phân tích &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="how-it-works" class="section-container bg-light">
+        <div class="section-title">
+            <h2>Quy trình vận hành Tinh gọn</h2>
+            <p>Khởi nghiệp với vốn lưu động thấp, không lo tồn kho chỉ với 3 bước.</p>
+        </div>
+        <div class="grid-3">
+            <div class="card step-card">
+                <div class="step-icon">📱</div>
+                <h3>1. Khách chốt đơn</h3>
+                <p>Khách hàng mua sản phẩm trên gian hàng TikTok Shop/Shopee của bạn với giá bán lẻ.</p>
+            </div>
+            <div class="card step-card">
+                <div class="step-icon">💻</div>
+                <h3>2. Chuyển cho Xưởng</h3>
+                <p>Bạn tự động đẩy đơn hàng sang hệ thống Nhà cung cấp và thanh toán theo giá sỉ.</p>
+            </div>
+            <div class="card step-card">
+                <div class="step-icon">🚚</div>
+                <h3>3. Xưởng Giao hàng</h3>
+                <p>Nhà cung cấp đóng gói và vận chuyển thẳng đến người mua. Bạn nhận tiền chênh lệch.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="calculator" class="section-container">
+        <div class="section-title">
+            <h2>Máy tính Quản trị Dòng tiền (ROI)</h2>
+            <p>Nhập số liệu để tự động bóc tách Định phí, Biến phí và Điểm hòa vốn.</p>
+        </div>
+        <div class="calc-wrapper">
+            <div class="calc-box">
+                <div class="input-group">
+                    <label>Giá nhập (Base Cost) - VNĐ:</label>
+                    <input type="number" id="baseCost" placeholder="VD: 150000">
+                </div>
+                <div class="input-group">
+                    <label>Chi phí Ads/Marketing dự kiến - VNĐ:</label>
+                    <input type="number" id="marketingCost" placeholder="VD: 40000">
+                </div>
+                <div class="input-group">
+                    <label>Phí đóng gói & Vận chuyển - VNĐ:</label>
+                    <input type="number" id="shippingCost" placeholder="VD: 25000">
+                </div>
+                <div class="input-group">
+                    <label>Phí sàn TMĐT (Shopee/TikTok) - %:</label>
+                    <input type="number" id="platformFee" placeholder="VD: 8">
+                </div>
+                <div class="input-group">
+                    <label>Giá bán lẻ (Retail Price) - VNĐ:</label>
+                    <input type="number" id="retailPrice" placeholder="VD: 350000">
+                </div>
+                <button onclick="calculateProfit()" class="btn-primary w-100 mt-10">Phân Tích Lợi Nhuận</button>
+            </div>
+            
+            <div class="result-box" id="resultBox">
+                <h3>Bảng Phân Tích Chỉ Số</h3>
+                <div class="result-row"><span>Tổng giá vốn (COGS):</span> <strong id="totalCost">0 VNĐ</strong></div>
+                <div class="result-row"><span>Phí nền tảng (Platform fee):</span> <strong id="feeAmount">0 VNĐ</strong></div>
+                <div class="result-row highlight-row"><span>Lợi nhuận ròng (Net Profit):</span> <strong id="netProfit" class="highlight-text">0 VNĐ</strong></div>
+                <div class="result-row"><span>Biên lợi nhuận (Margin):</span> <strong id="marginPercent">0%</strong></div>
+                <div class="advice" id="adviceMessage">Nhập số liệu để nhận đánh giá rủi ro dòng tiền.</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="suppliers" class="section-container bg-light">
+        <div class="section-title">
+            <h2>Mạng lưới Đối tác & Nguồn hàng (Suppliers)</h2>
+            <p>Hệ thống tổng kho được thẩm định chất lượng, hỗ trợ dán nhãn (White-label) cho Dropshipper.</p>
+        </div>
+        <div class="grid-3">
+            <div class="card supplier-card">
+                <div class="sup-logo">📦 Xưởng Sỉ Hà Nội</div>
+                <p><strong>Ngách:</strong> Thời trang nam nữ</p>
+                <p><strong>Lead-time:</strong> 1-2 ngày (Miền Bắc)</p>
+                <p><strong>Chính sách:</strong> Hỗ trợ đổi trả 7 ngày nếu lỗi form.</p>
+            </div>
+            <div class="card supplier-card">
+                <div class="sup-logo">🔌 TechSource HCM</div>
+                <p><strong>Ngách:</strong> Phụ kiện điện thoại, Đồ gia dụng thông minh</p>
+                <p><strong>Lead-time:</strong> 1-3 ngày (Toàn quốc)</p>
+                <p><strong>Chính sách:</strong> Bảo hành điện tử 6 tháng.</p>
+            </div>
+            <div class="card supplier-card">
+                <div class="sup-logo">🌐 PrintBase VN</div>
+                <p><strong>Ngách:</strong> In ấn theo yêu cầu (POD) - Áo thun, Cốc</p>
+                <p><strong>Lead-time:</strong> 5-7 ngày (Quốc tế)</p>
+                <p><strong>Chính sách:</strong> Dropship xuyên biên giới chuẩn Amazon.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="events" class="section-container">
+        <div class="event-wrapper">
+            <div class="event-info">
+                <h2>Chuỗi Sự kiện Sourcing Day 2026</h2>
+                <p>Tham gia ngày hội kết nối trực tiếp với hơn 50 nhà xưởng sản xuất và chuyên gia thương mại điện tử. Tại đây bạn sẽ được chia sẻ bộ tài liệu Kế toán chi phí độc quyền.</p>
+                <ul>
+                    <li>✔️ Cập nhật luật thuế TMĐT mới nhất</li>
+                    <li>✔️ Workshop: Kịch bản video ngắn nghìn đơn</li>
+                    <li>✔️ Ký kết hợp đồng giá sỉ trực tiếp với xưởng</li>
+                </ul>
+            </div>
+            <form id="eventForm" class="event-form">
+                <h3>Đăng ký Giữ chỗ (Miễn phí)</h3>
+                <div class="input-group">
+                    <input type="text" id="fullName" name="fullName" required placeholder="Họ và Tên của bạn">
+                </div>
+                <div class="input-group">
+                    <input type="email" id="email" name="email" required placeholder="Địa chỉ Email">
+                </div>
+                <div class="input-group">
+                    <input type="tel" id="phone" name="phone" required placeholder="Số điện thoại Zalo">
+                </div>
+                <button type="submit" class="btn-primary w-100">Xác Nhận Đăng Ký</button>
+            </form>
+        </div>
+    </section>
+
+    <div id="successModal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-icon">✔️</div>
+            <h3>Đăng ký Thành công!</h3>
+            <p>Thông tin của bạn đã được ghi nhận vào hệ thống. Ban tổ chức sẽ gửi vé tham dự qua Email và Zalo trong 24h tới.</p>
+            <button onclick="closeModal()" class="btn-primary w-100">Xác nhận</button>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <h3>DropshipHub VN</h3>
+            <p>Dự án môn học Thiết kế Website</p>
+            <div style="margin: 15px 0; padding-top: 15px; border-top: 1px solid #334155; display: inline-block; text-align: left;">
+                <p style="color: #f97316; font-weight: bold; margin-bottom: 5px;">Sinh viên thực hiện: Nguyễn Thị Thanh Thảo</p>
+                <p style="margin-bottom: 5px;">Email: nttthao7905@gmail.com</p>
+                <p style="margin-bottom: 5px;">SĐT / Zalo: 0368806290</p>
+            </div>
+            <p>&copy; 2026 All Rights Reserved.</p>
+        </div>
+    </footer>
